@@ -14,6 +14,7 @@ import com.briup.apps.poll.util.MsgResponse;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiOperation;
 
 
 @Api(description="年级相关接口")
@@ -23,7 +24,7 @@ public class GradeController {
 	@Autowired
 	private IGradeService gradeService;
 	
-	@ApiModelProperty(value="查询所有年级")
+	@ApiOperation(value="查询所有年级")
 	@GetMapping("findAllGrade")
 	public MsgResponse findAllGrade(){
 		try {
@@ -36,7 +37,7 @@ public class GradeController {
 		}
 	}
 	
-	@ApiModelProperty(value="通过id查询")
+	@ApiOperation(value="通过id查询")
 	@GetMapping("findById")
 	public MsgResponse findById(long id){
 		try {
@@ -49,7 +50,7 @@ public class GradeController {
 		}
 	}
 	
-	@ApiModelProperty(value="通过关键字查询")
+	@ApiOperation(value="通过关键字查询")
 	@GetMapping("query")
 	public MsgResponse query(String keywords){
 		try {
@@ -62,7 +63,7 @@ public class GradeController {
 		}
 	}
 	
-	@ApiModelProperty(value="保存或更新")
+	@ApiOperation(value="保存或更新")
 	@PostMapping("svaOrGrade")
 	public MsgResponse saveOrGrade(Grade grade){
 		try {
@@ -75,7 +76,7 @@ public class GradeController {
 		}
 	}
 
-	@ApiModelProperty(value="通过id删除")
+	@ApiOperation(value="通过id删除")
 	@GetMapping("deleteById")
 	public String deleteById(long id){
 		try {
@@ -88,7 +89,7 @@ public class GradeController {
 		}
 	}
 	
-	@ApiModelProperty(value="批量删除")
+	@ApiOperation(value="批量删除")
 	@GetMapping("baticDelete")
 	public String baticDelete(Long[] ids){
 		try {

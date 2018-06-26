@@ -14,6 +14,7 @@ import com.briup.apps.poll.util.MsgResponse;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiOperation;
 
 @Api(description="用户相关接口")
 @RestController
@@ -22,7 +23,7 @@ public class UserController {
 	@Autowired
 	private IUserService userService;
 	
-	@ApiModelProperty(value="查询所有用户信息")
+	@ApiOperation(value="查询所有用户信息")
 	@GetMapping("findAllUser")
 	public MsgResponse findAllUser(){
 		try {
@@ -35,7 +36,7 @@ public class UserController {
 		}
 	}
 	
-	@ApiModelProperty(value="通过id查询")
+	@ApiOperation(value="通过id查询")
 	@GetMapping("findById")
 	public MsgResponse findById(long id){
 		try {
@@ -48,7 +49,7 @@ public class UserController {
 		}
 	}
 	
-	@ApiModelProperty(value="通过关键字查询")
+	@ApiOperation(value="通过关键字查询")
 	@GetMapping("query")
 	public MsgResponse query(String keywords){
 		try {
@@ -61,7 +62,7 @@ public class UserController {
 		}
 	}
 	
-	@ApiModelProperty("保存或更新")
+	@ApiOperation("保存或更新")
 	@PostMapping("saveOrUpdate")
 	public String saveOrUpdate(User user){
 		try {
@@ -74,7 +75,7 @@ public class UserController {
 		}
 	}
 	
-	@ApiModelProperty("通过id删除")
+	@ApiOperation("通过id删除")
 	@GetMapping("deleteById")
 	public String deleteById(long id){
 		try {
@@ -87,7 +88,7 @@ public class UserController {
 		}
 	}
 	
-	@ApiModelProperty(value="批量删除")
+	@ApiOperation(value="批量删除")
 	@GetMapping("baticDelete")
 	public String baticDelete(Long[] ids){
 		try {
