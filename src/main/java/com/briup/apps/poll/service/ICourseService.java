@@ -17,5 +17,5 @@ public interface ICourseService {
 	//通过id删除
 	void deleteById(long id) throws Exception;
 	//批量删除
-	void baticDelete(List<Long> ids) throws Exception;
+	void baticDelete(Long[] ids) throws Exception;
 }
