@@ -17,7 +17,7 @@ private QuestionnaireMapper questionnaireMapper;
 	@Override
 	public List<Questionnaire> findAll() throws Exception {
 		QuestionnaireExample example=new QuestionnaireExample();
-		return questionnaireMapper.selectByExample(example);
+		return questionnaireMapper.selectByExampleWithBLOBs(example);
 	}
 
 	@Override
@@ -29,7 +29,7 @@ private QuestionnaireMapper questionnaireMapper;
 	public List<Questionnaire> query(String keywords) throws Exception {
 		QuestionnaireExample example=new QuestionnaireExample();
 		example.createCriteria().andNameLike(keywords);
-		return questionnaireMapper.selectByExample(example);
+		return questionnaireMapper.selectByExampleWithBLOBs(example);
 	}
 
 	@Override
