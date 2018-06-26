@@ -33,7 +33,7 @@ private CourseMapper courseMapper;
 	public void saveOrUpdate(Course course) throws Exception {
 		if (course.getId()!=null) {
 			//更新
-			courseMapper.updateByPrimaryKey(course);
+			courseMapper.updateByPrimaryKeyWithBLOBs(course);
 		} else {
             //插入
 			courseMapper.insert(course);
@@ -45,7 +45,7 @@ private CourseMapper courseMapper;
 	}
 
 	@Override
-	public void baticDelete(List<Long> ids) throws Exception {
+	public void baticDelete(Long[] ids) throws Exception {
 		for(long id : ids){
 			courseMapper.deleteByPrimaryKey(id);
 		}
