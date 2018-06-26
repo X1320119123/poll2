@@ -12,6 +12,7 @@ import com.briup.apps.poll.service.ISchoolService;
 import com.briup.apps.poll.util.MsgResponse;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @Api(description="学校相关接口")
 @RestController
@@ -20,6 +21,8 @@ public class SchoolController {
 	@Autowired
 	private ISchoolService schoolService;
 	
+	
+	@ApiOperation(value="查询所有学校信息")
 	@GetMapping("findAllSchool")
 	public MsgResponse findAllSchool(){
 		try {
@@ -32,6 +35,8 @@ public class SchoolController {
 		}
 	}
 	
+	
+	@ApiOperation(value="保存或更新")
 	@GetMapping("saveOrUpdate")
 	public String saveOrUpdate(School school){
 		try {
