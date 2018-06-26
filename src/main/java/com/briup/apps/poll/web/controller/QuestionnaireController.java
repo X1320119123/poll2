@@ -8,24 +8,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.briup.apps.poll.bean.Course;
-import com.briup.apps.poll.service.ICourseService;
+import com.briup.apps.poll.bean.Questionnaire;
+import com.briup.apps.poll.service.IQuestionnaireService;
 import com.briup.apps.poll.util.MsgResponse;
 
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
-@Api(description="课程相关接口")
+@Api(description="问卷相关接口")
 @RestController
-@RequestMapping("/course")
-public class CourseController {
+@RequestMapping("/questionnaire")
+public class QuestionnaireController {
 	@Autowired
-	private ICourseService courseService;
-	@ApiOperation(value="查询所有课程")
-    @GetMapping("findAllCourse")
-	public MsgResponse findAllCourse(){
+	private IQuestionnaireService questionnaireService;
+	@ApiOperation(value="查询所有问卷")
+    @GetMapping("findAllQuestionnaire")
+	public MsgResponse findAllQuestionnaire(){
 		try {
-			List<Course> list = courseService.findAll();
+			List<Questionnaire> list = questionnaireService.findAll();
 			//返回成功信息
 			return MsgResponse.success("success", list);
 		} catch (Exception e) {
@@ -34,22 +33,22 @@ public class CourseController {
 			return MsgResponse.error(e.getMessage());
 		}
 	}
-    @ApiOperation(value="通过id查询课程")
+    @ApiOperation(value="通过id查询问卷")
     @GetMapping("findById")
     public MsgResponse findById(long id){
     	try {
-			Course course = courseService.findById(id);
-			return MsgResponse.success("success", course);
+    		Questionnaire questionnaire = questionnaireService.findById(id);
+			return MsgResponse.success("success", questionnaire);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return MsgResponse.error(e.getMessage());
 		}		
     }
-    @ApiOperation(value="通过名字查询课程")
+    @ApiOperation(value="通过name查询问卷详情")
     @GetMapping("query")
     public MsgResponse query(String keywords){
     	try {
-			List<Course> list = courseService.query(keywords);
+			List<Questionnaire> list = questionnaireService.query(keywords);
 			return MsgResponse.success("success", list);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -58,34 +57,34 @@ public class CourseController {
     }
     @ApiOperation(value="保存或更新")
     @PostMapping("saveOrUpdate")
-    public String saveOrUpdate(Course course){
+    public String saveOrUpdate(Questionnaire questionnaire){
     	try {
-			courseService.saveOrUpdate(course);
-			return "保存或更新成功";
+    		questionnaireService.saveOrUpdate(questionnaire);
+			return "success";
 		} catch (Exception e) {
-			return "失败"+e.getMessage();
+			return "failed"+e.getMessage();
 		}
     }
-    @ApiOperation(value="通过id删除")
+    @ApiOperation(value="通过id删除问卷信息")
     @GetMapping("deleteById")
     public String deleteById(long id){
     	try {
-			courseService.deleteById(id);
-			return "删除成功";
+    		questionnaireService.deleteById(id);
+			return "success";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "删除失败"+e.getMessage();
+			return "failed"+e.getMessage();
 		}
     }
-    @ApiOperation(value="批量删除")
+    @ApiOperation(value="批量删除问卷信息")
     @GetMapping("baticDelete")
     public String baticDelete(Long[] ids){
     	try {
-			courseService.baticDelete(ids);
-			return "批量删除成功";
+    		questionnaireService.baticDelete(ids);
+			return "success";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "批量删除失败"+e.getMessage();
+			return "failed"+e.getMessage();
 		}
     }
     
