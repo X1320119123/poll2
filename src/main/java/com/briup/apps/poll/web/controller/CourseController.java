@@ -61,7 +61,7 @@ public class CourseController {
     public String saveOrUpdate(Course course){
     	try {
 			courseService.saveOrUpdate(course);
-			return "保存或更新";
+			return "保存或更新成功";
 		} catch (Exception e) {
 			return "失败"+e.getMessage();
 		}
