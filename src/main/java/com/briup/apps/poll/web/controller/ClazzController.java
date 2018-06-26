@@ -76,10 +76,10 @@ public class ClazzController {
 	 
 	 @ApiOperation(value="保存或者更新班级信息")
 	 @GetMapping("saveOrUpdateClazz")
-		public MsgResponse save(Clazz clazz){
+		public MsgResponse saveOrUpdate(Clazz clazz){
 			try {
 				clazzService.saveOrUpdate(clazz);
-				return MsgResponse.success("success","保存成功");
+				return MsgResponse.success("success",clazz);
 			}
 			catch (Exception e){
 				e.printStackTrace();
