@@ -35,7 +35,7 @@ private QuestionnaireMapper questionnaireMapper;
 	@Override
 	public void saveOrUpdate(Questionnaire questionnaire) throws Exception {
 		if(questionnaire.getId()!=null){
-			questionnaireMapper.updateByPrimaryKey(questionnaire);
+			questionnaireMapper.updateByPrimaryKeyWithBLOBs(questionnaire);
 		}else{
 			questionnaireMapper.insert(questionnaire);
 		}
