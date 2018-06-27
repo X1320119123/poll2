@@ -8,6 +8,7 @@ public class survey {
      *
      * @mbg.generated Mon Jun 25 16:40:33 CST 2018
      */
+	
     private Long id;
 
     /**
