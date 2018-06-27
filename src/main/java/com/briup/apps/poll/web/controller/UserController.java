@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.briup.apps.poll.bean.User;
+import com.briup.apps.poll.bean.extend.UserVM;
 import com.briup.apps.poll.service.IUserService;
 import com.briup.apps.poll.util.MsgResponse;
 
@@ -23,11 +24,24 @@ public class UserController {
 	@Autowired
 	private IUserService userService;
 	
-	@ApiOperation(value="查询所有用户信息")
+	@ApiOperation(value="查询所有用户信息",notes="单表")
 	@GetMapping("findAllUser")
 	public MsgResponse findAllUser(){
 		try {
 			List<User> list=userService.findAll();
+			return MsgResponse.success("success", list);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	}
+	
+	@ApiOperation(value="查询所有用户信息",notes="查询教师信息中包含教师所在班级信息")
+	@GetMapping("findAllUserVM")
+	public MsgResponse findAllUserVM(){
+		try {
+			List<UserVM> list=userService.findAllUserVM();
 			return MsgResponse.success("success", list);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -62,7 +76,7 @@ public class UserController {
 		}
 	}
 	
-	@ApiOperation("保存或更新")
+	@ApiOperation(value="保存或更新")
 	@PostMapping("saveOrUpdate")
 	public String saveOrUpdate(User user){
 		try {
@@ -75,7 +89,7 @@ public class UserController {
 		}
 	}
 	
-	@ApiOperation("通过id删除")
+	@ApiOperation(value="通过id删除")
 	@GetMapping("deleteById")
 	public String deleteById(long id){
 		try {

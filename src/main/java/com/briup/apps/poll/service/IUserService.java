@@ -3,6 +3,7 @@ package com.briup.apps.poll.service;
 import java.util.List;
 
 import com.briup.apps.poll.bean.User;
+import com.briup.apps.poll.bean.extend.UserVM;
 
 public interface IUserService {
 	
@@ -11,6 +12,8 @@ public interface IUserService {
 	User findById(long id) throws Exception;
 	
 	List<User> query(String keywords) throws Exception;
+	
+	List<UserVM> findAllUserVM() throws Exception;
 	
 	void saveOrUpdate(User user) throws Exception;
 	

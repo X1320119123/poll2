@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.briup.apps.poll.bean.Grade;
+import com.briup.apps.poll.bean.extend.GradeVM;
 import com.briup.apps.poll.service.IGradeService;
 import com.briup.apps.poll.util.MsgResponse;
 
@@ -24,11 +25,24 @@ public class GradeController {
 	@Autowired
 	private IGradeService gradeService;
 	
-	@ApiOperation(value="查询所有年级")
+	@ApiOperation(value="查询所有年级",notes="单表")
 	@GetMapping("findAllGrade")
 	public MsgResponse findAllGrade(){
 		try {
 			 List<Grade> list=gradeService.findAll();
+			 return MsgResponse.success("success", list);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	}
+	
+	@ApiOperation(value="查询所有年级",notes="年级中携带学校所有信息")
+	@GetMapping("findAllGradeVM")
+	public MsgResponse findAllGradeVM(){
+		try {
+			 List<GradeVM> list=gradeService.findAllGradeVM();
 			 return MsgResponse.success("success", list);
 		} catch (Exception e) {
 			// TODO: handle exception
