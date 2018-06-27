@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.briup.apps.poll.bean.Clazz;
+import com.briup.apps.poll.bean.extend.ClazzVM;
 import com.briup.apps.poll.service.IClazzService;
 import com.briup.apps.poll.util.MsgResponse;
 
@@ -21,11 +22,25 @@ import io.swagger.annotations.ApiOperation;
 public class ClazzController {
 	@Autowired
 	private IClazzService clazzService;
-	 @ApiOperation(value="查找所有班级信息")	
+	 @ApiOperation(value="查找所有班级信息",notes="单表")	
 	 @GetMapping("findAllClazz")
 	 public MsgResponse findAllClazz(){
 			try {
 				List<Clazz> list = clazzService.findAll();
+				//返回成功信息
+				return MsgResponse.success("success", list);
+			} catch (Exception e) {
+				e.printStackTrace();
+				//返回失败信息
+				return MsgResponse.error(e.getMessage());
+			}
+		}
+	 @ApiOperation(value="查找所有班级信息",
+			 notes="班级中携带班级所有属性年级信息及班主任信息")	
+	 @GetMapping("findAllClazzVM")
+	 public MsgResponse findAllClazzVM(){
+			try {
+				List<ClazzVM> list = clazzService.findAllClazzVM();
 				//返回成功信息
 				return MsgResponse.success("success", list);
 			} catch (Exception e) {
