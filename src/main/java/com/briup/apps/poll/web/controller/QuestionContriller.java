@@ -22,6 +22,21 @@ public class QuestionContriller {
 	@Autowired
 	
 	private IQuestionService questionService;
+	@ApiOperation(value="保存或修改问题",
+			notes="当id不为空时表示修改,否则表示更新,保存和更新是需要提交选项数据")
+	@PostMapping("saveOrUpdateQuestion")
+	public MsgResponse saveOrUpdateQuestionVM(QuestionVM questionVM){
+		try {
+			questionService.saveOrUpdateVM(questionVM);
+			return MsgResponse.success("保存成功", null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+		
+		
+	}
+	
 	@ApiOperation(value="查询题库所有题目",notes="单表")
 	@GetMapping("findAllQuestion")
 	public MsgResponse findAllQuestion(){

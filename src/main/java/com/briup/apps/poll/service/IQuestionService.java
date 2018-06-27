@@ -16,6 +16,8 @@ public interface IQuestionService {
 	List<Question> query(String keywords) throws Exception;
 	//插入或者更新题目
 	void saveOrUpdate(Question question) throws Exception;
+	
+	void saveOrUpdateVM(QuestionVM questionVM) throws Exception;
 	//通过ID删除题目
 	void deleteById(long id) throws Exception;
 	//批量删除题目
