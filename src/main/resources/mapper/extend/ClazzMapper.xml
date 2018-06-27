@@ -14,5 +14,8 @@
      <association column="grade_id" property="grade" 
      select="com.briup.apps.poll.dao.GradeMapper.selectByPrimaryKey">
      </association>
+     <association column="charge_id" property="charge" 
+     select="com.briup.apps.poll.dao.UserMapper.selectByPrimaryKey"  >
+     </association>
    </resultMap>
 </mapper>
