@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -90,7 +91,7 @@ public class ClazzController {
 	 }
 	 
 	 @ApiOperation(value="保存或者更新班级信息")
-	 @GetMapping("saveOrUpdateClazz")
+	 @PostMapping("saveOrUpdateClazz")
 		public MsgResponse saveOrUpdate(Clazz clazz){
 			try {
 				clazzService.saveOrUpdate(clazz);
