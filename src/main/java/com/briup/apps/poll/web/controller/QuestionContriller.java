@@ -9,23 +9,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.briup.apps.poll.bean.Question;
+import com.briup.apps.poll.bean.extend.QuestionVM;
 import com.briup.apps.poll.service.IQuestionService;
 import com.briup.apps.poll.util.MsgResponse;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-@Api(description="题库文通相关接口")
+@Api(description="题库相关接口")
 @RestController
 @RequestMapping("/question")
 public class QuestionContriller {
 	@Autowired
 	
 	private IQuestionService questionService;
-	@ApiOperation(value="查询题库所有题目")
+	@ApiOperation(value="查询题库所有题目",notes="单表")
 	@GetMapping("findAllQuestion")
 	public MsgResponse findAllQuestion(){
 		try{
 			List<Question> list=questionService.findAll();
+			//返回查询成功信息
+			return MsgResponse.success("success", list);
+		}catch (Exception e) {
+			e.printStackTrace();
+			//返回查询失败信息
+			return MsgResponse.error(e.getMessage());
+		}
+	}
+	
+
+	@ApiOperation(value="查询题库所有题目",notes="查询问题中包含该问题所有的属性信息")
+	@GetMapping("findAllQuestionVM")
+	public MsgResponse findAllQuestionVM(){
+		try{
+			List<QuestionVM> list=questionService.findAllQuestionVM();
 			//返回查询成功信息
 			return MsgResponse.success("success", list);
 		}catch (Exception e) {

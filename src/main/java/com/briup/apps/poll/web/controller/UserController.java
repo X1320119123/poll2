@@ -14,7 +14,6 @@ import com.briup.apps.poll.service.IUserService;
 import com.briup.apps.poll.util.MsgResponse;
 
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 
 @Api(description="用户相关接口")

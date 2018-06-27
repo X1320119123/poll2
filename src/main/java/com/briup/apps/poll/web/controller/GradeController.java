@@ -14,7 +14,6 @@ import com.briup.apps.poll.service.IGradeService;
 import com.briup.apps.poll.util.MsgResponse;
 
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 
 
