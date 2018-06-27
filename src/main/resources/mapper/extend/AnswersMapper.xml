@@ -12,7 +12,7 @@
     <result column="checkes" property="checkes"/>
     <result column="content" property="content"/>
     <association column="survey_id" property="survey" 
-     select="com.briup.apps.poll.dao.AnswersMapper.selectByPrimaryKey">
+     select="com.briup.apps.poll.dao.surveyMapper.selectByPrimaryKey">
     </association>
    </resultMap>
 </mapper>

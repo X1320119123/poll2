@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -54,5 +55,16 @@ public class AnswersController {
 			return MsgResponse.error(e.getMessage());
 		}
 	}
+	
+    @ApiOperation(value="保存或更新")
+    @PostMapping("saveOrUpdate")
+    public String saveOrUpdate(Answers answers){
+    	try {
+			answersService.saveOrUpdate(answers);
+			return "保存或更新成功";
+		} catch (Exception e) {
+			return "失败"+e.getMessage();
+		}
+    }
 
 }

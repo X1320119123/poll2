@@ -35,4 +35,13 @@ public class AnswersServiceImpl implements IAnswersService{
 			return answersVMMapper.selectAll();
 		}
 
+		@Override
+		public void saveOrUpdate(Answers answers) throws Exception {
+			if (answers.getId()!=null) {
+				answersMapper.updateByPrimaryKey(answers);
+			} else {
+                answersMapper.insert(answers);
+			};
+		}
+
 }

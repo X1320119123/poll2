@@ -11,6 +11,8 @@ public interface IAnswersService {
 	
 	Answers findById(long id) throws Exception;
 	
+	void saveOrUpdate(Answers answers) throws Exception;
+	
 	List<AnswersVM> findAllAnswersVM() throws Exception;
 	
 }
