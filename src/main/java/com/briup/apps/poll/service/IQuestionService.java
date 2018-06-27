@@ -3,10 +3,13 @@ package com.briup.apps.poll.service;
 import java.util.List;
 
 import com.briup.apps.poll.bean.Question;
+import com.briup.apps.poll.bean.extend.QuestionVM;
 
 public interface IQuestionService {
 	//查询题库所有题目
 	List<Question> findAll() throws Exception;
+	
+	List<QuestionVM> findAllQuestionVM() throws Exception;
 	//通过ID查询题库题目
 	Question findById(long id) throws Exception;
 	//通过关键字查询题目
