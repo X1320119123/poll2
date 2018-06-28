@@ -25,9 +25,9 @@ public class ClazzServiceImpl implements IClazzService{
 	}
 
 	@Override
-	public Clazz findById(long id) throws Exception {
+	public ClazzVM findById(long id) throws Exception {
 		// TODO Auto-generated method stub
-		return clazzMapper.selectByPrimaryKey(id);
+		return clazzVMMapper.selectById(id);
 	}
 
 	@Override
