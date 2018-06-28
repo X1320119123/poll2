@@ -56,7 +56,7 @@ public class AnswersController {
 		}
 	}
 	
-    @ApiOperation(value="保存或更新")
+    @ApiOperation(value="保存或更新答案")
     @PostMapping("saveOrUpdate")
     public String saveOrUpdate(Answers answers){
     	try {
@@ -65,6 +65,18 @@ public class AnswersController {
 		} catch (Exception e) {
 			return "失败"+e.getMessage();
 		}
+    }
+    
+    @ApiOperation(value="通过id删除答案")
+    @GetMapping("deleteById")
+    public MsgResponse deleteById(long id){
+		try {
+			answersService.deleteById(id);
+			return MsgResponse.success("success","删除成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}	
     }
 
 }

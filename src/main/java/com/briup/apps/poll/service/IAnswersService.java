@@ -15,4 +15,6 @@ public interface IAnswersService {
 	
 	List<AnswersVM> findAllAnswersVM() throws Exception;
 	
+	void deleteById(long id) throws Exception;
+	
 }

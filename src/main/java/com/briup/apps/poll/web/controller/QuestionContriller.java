@@ -96,15 +96,15 @@ public class QuestionContriller {
 	
 	@ApiOperation(value="通过id删除题目")
 	@GetMapping("deleteById")
-	public String deleteById(long id){
+	public MsgResponse deleteById(long id){
 		try {
 			questionService.deleteById(id);
 			//返回删除成功信息
-			return "删除成功";
+			return MsgResponse.success("删除成功", null);
 		} catch (Exception e) {
 			e.printStackTrace();
 			//返回删除失败信息
-			return "删除失败"+e.getMessage();
+			return MsgResponse.error(e.getMessage());
 		}
 	}
 	

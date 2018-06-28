@@ -80,15 +80,14 @@ public class QuestionService implements IQuestionService{
 			}else{
 				//2.1.2 保存单选和多选题是许先保存题目信息,在保存选项信息
 				questionMapper.insert(question);
-				//
+				//如何获取刚刚插入的问题的id
 				long questionId = question.getId();
 					for(Options option : options){
+						//为每个option设置question_id
 						option.setQuestionId(questionId);
-						optionsMapper.insert(option);
-						
-					}
-				
-				
+						//保存选项
+						optionsMapper.insert(option);	
+					}		
 			}
 		}else{
 			//2.2 修改
@@ -99,20 +98,22 @@ public class QuestionService implements IQuestionService{
 			OptionsExample example = new OptionsExample();
 			example.createCriteria().andQuestionIdEqualTo(question.getId());
 			optionsMapper.deleteByExample(example);
+			//2. 重新添加选项
+			long questionId = question.getId();
+			for(Options option : options){
+				//为每个option设置question_id
+				option.setQuestionId(questionId);
+				//保存选项
+				optionsMapper.insert(option);	
+			}		
 		}
-		
-		
 		//2.判断是否为简答
 		/*
 		 * 保存:
 		 * 1.保存问题
 		 * 2.保存选项
 		 */
-		
 	}
-
-	
-	
 	@Override
 	public void deleteById(long id) throws Exception {
 		// TODO Auto-generated method stub

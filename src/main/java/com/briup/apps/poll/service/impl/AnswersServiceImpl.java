@@ -26,13 +26,13 @@ public class AnswersServiceImpl implements IAnswersService{
 		}
 
 		@Override
-		public Answers findById(long id) throws Exception {
-			return answersMapper.selectByPrimaryKey(id);
-		}
-
-		@Override
 		public List<AnswersVM> findAllAnswersVM() throws Exception {
 			return answersVMMapper.selectAll();
+		}
+		
+		@Override
+		public Answers findById(long id) throws Exception {
+			return answersMapper.selectByPrimaryKey(id);
 		}
 
 		@Override
@@ -42,6 +42,12 @@ public class AnswersServiceImpl implements IAnswersService{
 			} else {
                 answersMapper.insert(answers);
 			};
+		}
+
+		@Override
+		public void deleteById(long id) throws Exception {
+			answersMapper.deleteByPrimaryKey(id);
+			
 		}
 
 }
