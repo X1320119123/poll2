@@ -7,4 +7,6 @@ import com.briup.apps.poll.bean.extend.UserVM;
 public interface UserVMMapper {
 	
 	List<UserVM> selectAll();
+	
+	List<UserVM> selectByGradeID(long id);
 }
