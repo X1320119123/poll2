@@ -8,5 +8,5 @@ public interface QuestionVMMapper {
 	
 	List<QuestionVM>  selectAll();
 	
-	List<QuestionVM> selectByQuestionnaireID(long id);
+	List<QuestionVM> selectByQuestionnaireId(long id);
 }
