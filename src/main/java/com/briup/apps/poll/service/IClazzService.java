@@ -11,7 +11,7 @@ public interface IClazzService {
 	
 	List<ClazzVM> findAllClazzVM() throws Exception;
 	//通过id查询
-	Clazz findById(long id) throws Exception;
+	ClazzVM findById(long id) throws Exception;
 	//通过关键字查询
 	List<Clazz> query(String keywords) throws Exception;
 	//插入和更新
@@ -20,6 +20,5 @@ public interface IClazzService {
 	void deleteById(long id) throws Exception;
 	//批量删除
 	void baticDelete(List<Long> ids) throws Exception;
-
 	
 }

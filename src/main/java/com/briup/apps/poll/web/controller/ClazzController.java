@@ -52,15 +52,15 @@ public class ClazzController {
 		}
 	 @ApiOperation(value="Id搜索班级信息")
 	 @GetMapping("findById")
-	 public MsgResponse findClazzById(@RequestParam long id){
-			try {
-				Clazz clazz= clazzService.findById(id);
-				//返回成功信息
-				return MsgResponse.success("success",clazz );
+	 public MsgResponse findClazzVMById(@RequestParam long id){
+		 try {
+				ClazzVM clazzVM = clazzService.findById(id);
+				// 返回成功信息
+				return MsgResponse.success("success", clazzVM);
 			} catch (Exception e) {
 				e.printStackTrace();
-				//返回失败信息
-				return MsgResponse.error(e.getMessage());
+				// 返回失败信息
+				return MsgResponse.error(e.getMessage()) ;
 			}
 		}
 	 @ApiOperation(value="关键字搜索班级信息")
