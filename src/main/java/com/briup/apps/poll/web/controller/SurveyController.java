@@ -2,7 +2,6 @@ package com.briup.apps.poll.web.controller;
 
 import java.util.List;
 
-import javax.validation.constraints.Null;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -52,7 +51,7 @@ public class SurveyController {
 			return MsgResponse.error(e.getMessage());
 		}
 	}
-	@ApiOperation(value="查询课调信息")
+	@ApiOperation(value="通过ID搜索课调信息")
 	@GetMapping("findallSurveyVMID")
 	
 	public MsgResponse findallSurveyVMID(long id){

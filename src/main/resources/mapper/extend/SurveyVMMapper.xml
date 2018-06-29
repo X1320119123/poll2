@@ -55,7 +55,7 @@
  		<association 
  		column="questionnaire_id" 
  		property="questionnaireVM"
- 		select="com.briup.apps.poll.dao.extend.questionnaireVMMapper">
+ 		select="com.briup.apps.poll.dao.extend.QuestionnaireVMMapper.selectById">
  		</association>
  		
  		</resultMap>

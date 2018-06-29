@@ -6,7 +6,7 @@ import java.util.List;
 import com.briup.apps.poll.bean.extend.SurveyVM;
 
 public interface SurveyVMMapper {
-	List<SurveyVM> selectAll() throws Exception;
+	List<SurveyVM> selectAll() ;
 
 	SurveyVM selectById(long id);
 

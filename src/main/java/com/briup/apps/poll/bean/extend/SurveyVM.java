@@ -1,8 +1,6 @@
 package com.briup.apps.poll.bean.extend;
 
-import com.briup.apps.poll.bean.Clazz;
 import com.briup.apps.poll.bean.Course;
-import com.briup.apps.poll.bean.Questionnaire;
 import com.briup.apps.poll.bean.User;
 
 public class SurveyVM {

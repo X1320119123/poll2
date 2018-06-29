@@ -57,7 +57,7 @@ public class SurveyService implements ISurveyService{
 			Date now =new Date();
 			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			String surveyDate=sdf.format(now);
-			survey.setSurveydate(surveyDate);
+			survey.setSurveydate(surveyDate);;
 			surveyMapper.insert(survey);
 		}
 	}
