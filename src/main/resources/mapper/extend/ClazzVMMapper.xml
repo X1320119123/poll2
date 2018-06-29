@@ -5,7 +5,7 @@
    select * from poll_clazz
    <!-- id,name,description,grade_id,charge_id -->
    </select>
-   <select id="selectById" resultMap="ClazzVMResultMap">
+   <select id="selectById" parameterType="long"     resultMap="ClazzVMResultMap">
  		select * from poll_clazz where id = #{id}
  		<!-- id,name,description -->
  	</select>

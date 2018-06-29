@@ -15,7 +15,9 @@ public interface ISurveyService {
 //	关键字查询
 	List<survey> query(String keywors) throws Exception;
 	
-	List<SurveyVM> findallSurveyVM() throws Exception; 
+	List<SurveyVM> findallSurveyVM() throws Exception;
+	
+	SurveyVM selectById(long id) throws Exception;
 //	插入和更新
 	void saveOrUpdate(survey survey) throws Exception;
 //	通过ID删除

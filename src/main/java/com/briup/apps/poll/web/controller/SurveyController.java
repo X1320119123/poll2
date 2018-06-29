@@ -2,6 +2,8 @@ package com.briup.apps.poll.web.controller;
 
 import java.util.List;
 
+import javax.validation.constraints.Null;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,8 +44,21 @@ public class SurveyController {
 	
 	public MsgResponse findallSurveyVM(){
 		try {
-			List<SurveyVM> list = surveyService.findallSurveyVM();
+			List<SurveyVM> list =surveyService.findallSurveyVM();
 			return MsgResponse.success("success", list);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	}
+	@ApiOperation(value="查询课调信息")
+	@GetMapping("findallSurveyVMID")
+	
+	public MsgResponse findallSurveyVMID(long id){
+		try {
+			SurveyVM surveyVM=surveyService.selectById(id);
+			return MsgResponse.success("success",surveyVM);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -64,7 +79,7 @@ public class SurveyController {
 	}
 	@ApiOperation(value="关键字搜索")
 	@GetMapping("querys")
-	public MsgResponse query(String keywords){
+	public MsgResponse querys(String keywords){
 		try {
 			List<survey> list=surveyService.query(keywords);
 			return MsgResponse.success("success", list);
@@ -74,6 +89,10 @@ public class SurveyController {
 			return MsgResponse.error(e.getMessage());
 		}
 	}
+	
+	
+	
+	
 	 @ApiOperation(value="通关ID删除课调信息")
 	  @GetMapping("deleteByIdSurvey")
 	  public MsgResponse deleteByIdSurvey(@RequestParam long id){
@@ -81,7 +100,7 @@ public class SurveyController {
 		  try {
 
 			  surveyService.deleteById(id);
-			return MsgResponse.success("success","删除成功");
+			return MsgResponse.success("success",null);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return MsgResponse.error(e.getMessage());
@@ -94,7 +113,7 @@ public class SurveyController {
 			try {
 
 				surveyService.saveOrUpdate(survey);
-				return MsgResponse.success("success",survey);
+				return MsgResponse.success("success",null);
 			}
 			catch (Exception e){
 				e.printStackTrace();
@@ -102,12 +121,12 @@ public class SurveyController {
 			}
 		}
 	 @ApiOperation(value="批量删除课调信息")
-	  @GetMapping("baticDeleteSurvey")
+	  @PostMapping("baticDeleteSurvey")
 	  public MsgResponse baticDeleteSurvey(@RequestParam Long[] ids){
 		  //调用service层代码完成课程信息的删除
 		  try {
 			surveyService.baticDelete(ids);
-			return MsgResponse.success("success","删除成功");
+			return MsgResponse.success("success",null);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return MsgResponse.error(e.getMessage());
