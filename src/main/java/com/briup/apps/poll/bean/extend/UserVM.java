@@ -2,7 +2,7 @@ package com.briup.apps.poll.bean.extend;
 
 import java.util.List;
 
-import com.briup.apps.poll.bean.Clazz;
+import com.briup.apps.poll.bean.Grade;
 
 public class UserVM {
 	private Long id;
@@ -12,7 +12,7 @@ public class UserVM {
 	private String hiredate;
 	private String genre;
 	
-	private List<Clazz> clazzs;
+	private List<Grade> grades;
 
 	public Long getId() {
 		return id;
@@ -56,12 +56,14 @@ public class UserVM {
 
 	
 
-	public List<Clazz> getClazzs() {
-		return clazzs;
+	
+
+	public List<Grade> getGrades() {
+		return grades;
 	}
 
-	public void setClazzs(List<Clazz> clazzs) {
-		this.clazzs = clazzs;
+	public void setGrades(List<Grade> grades) {
+		this.grades = grades;
 	}
 
 	public String getGenre() {

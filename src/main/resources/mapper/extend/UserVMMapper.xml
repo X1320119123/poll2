@@ -15,17 +15,17 @@
      <result column="hiredate" property="hiredate"/>
      <result column="genre" property="genre"/>
 	 <collection column="id" 
-	 property="clazzs" 
+	 property="grades" 
 	 javaType="ArrayList"
-	 ofType="com.briup.apps.poll.bean.Clazz"
-	 select="selectClazzByUserId"
+	 ofType="com.briup.apps.poll.bean.Grade"
+	 select="selectGradeByUserId"
 	 >
 	  </collection>
    </resultMap>
    
    <!--通过用户查找属于用户的班级信息  -->
-   <select id="selectClazzByUserId" resultType="com.briup.apps.poll.bean.Clazz"
+   <select id="selectGradeByUserId" resultType="com.briup.apps.poll.bean.Grade"
    parameterType="Long">
-   	select * from poll_clazz where charge_id = #{id}
+   	select * from poll_grade where id = #{id}
    </select>
 </mapper>
