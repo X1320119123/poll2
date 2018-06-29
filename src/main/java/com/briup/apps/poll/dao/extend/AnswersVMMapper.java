@@ -7,4 +7,6 @@ import com.briup.apps.poll.bean.extend.AnswersVM;
 public interface AnswersVMMapper {
 	
 	List<AnswersVM> selectAll();
+	
+	AnswersVM selectById(long id);
 }

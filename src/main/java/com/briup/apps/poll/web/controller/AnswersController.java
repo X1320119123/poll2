@@ -33,7 +33,7 @@ public class AnswersController {
 		}
 	}
 	
-	@ApiOperation(value="查询所有答案")
+	@ApiOperation(value="查询所有答案,附带所属课调信息")
 	@GetMapping("findAllAnswersVM")
 	public MsgResponse findAllAnswersVM(){
 		try {
@@ -55,6 +55,18 @@ public class AnswersController {
 			return MsgResponse.error(e.getMessage());
 		}
 	}
+	@ApiOperation(value="通过id查询答案,附带所属课调信息")
+	@GetMapping("findAnswersVMById")
+	public MsgResponse findAnswersVMById(long id){
+		try {
+			AnswersVM answersVM = answersService.findAnswersVMById(id);
+			return MsgResponse.success("success", answersVM);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	}
+	
 	
     @ApiOperation(value="保存或更新答案")
     @PostMapping("saveOrUpdate")

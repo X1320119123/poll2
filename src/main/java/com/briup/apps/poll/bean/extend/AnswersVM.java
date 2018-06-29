@@ -6,7 +6,7 @@ public class AnswersVM {
 	private Long id;
 	private String selections;
 	private String checkes;
-	private String content;
+	private String content; 
 	private survey survey;
 	
 	public Long getId() {

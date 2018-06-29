@@ -4,6 +4,9 @@
    <select id="selectAll" resultMap="AnswersVMResultMap">
    	select * from poll_answers
    </select>
+   <select id="selectById" resultMap="AnswersVMResultMap">
+   select * from poll_answers where id=#{id}
+   </select>
    
    <!-- 定义结果集 -->
    <resultMap type="com.briup.apps.poll.bean.extend.AnswersVM" id="AnswersVMResultMap">

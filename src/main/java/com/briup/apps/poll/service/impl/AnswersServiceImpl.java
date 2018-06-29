@@ -50,4 +50,9 @@ public class AnswersServiceImpl implements IAnswersService{
 			
 		}
 
+		@Override
+		public AnswersVM findAnswersVMById(long id) throws Exception {
+			return answersVMMapper.selectById(id);
+		}
+
 }

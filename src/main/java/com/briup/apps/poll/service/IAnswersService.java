@@ -17,4 +17,6 @@ public interface IAnswersService {
 	
 	void deleteById(long id) throws Exception;
 	
+	AnswersVM findAnswersVMById(long id) throws Exception;
+	
 }

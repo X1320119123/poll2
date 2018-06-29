@@ -43,8 +43,7 @@ public class ClazzServiceImpl implements IClazzService{
 		// TODO Auto-generated method stub
 		if (clazz.getId()!=null) {
 			//更新
-			clazzMapper.updateByPrimaryKeyWithBLOBs
-(clazz);
+			clazzMapper.updateByPrimaryKeyWithBLOBs(clazz);
 		} else {
             //插入
 			clazzMapper.insert(clazz);
