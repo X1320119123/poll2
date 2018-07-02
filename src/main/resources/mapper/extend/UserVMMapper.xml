@@ -14,18 +14,15 @@
      <result column="birth" property="birth"/>
      <result column="hiredate" property="hiredate"/>
      <result column="genre" property="genre"/>
-	 <collection column="id" 
-	 property="grades" 
-	 javaType="ArrayList"
-	 ofType="com.briup.apps.poll.bean.Grade"
-	 select="selectGradeByUserId"
-	 >
-	  </collection>
+	<collection 
+ 			column="id"
+ 			property="clazzVMs"
+ 			javaType="ArrayList"
+ 			ofType="com.briup.apps.poll.bean.extend.ClazzVM"
+			select="com.briup.apps.poll.dao.extend.ClazzVMMapper.selectById">
+ 		</collection>
    </resultMap>
    
    <!--通过用户查找属于用户的班级信息  -->
-   <select id="selectGradeByUserId" resultType="com.briup.apps.poll.bean.Grade"
-   parameterType="Long">
-   	select * from poll_grade where id = #{id}
-   </select>
+   
 </mapper>
