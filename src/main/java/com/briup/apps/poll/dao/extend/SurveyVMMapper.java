@@ -9,9 +9,5 @@ public interface SurveyVMMapper {
 	List<SurveyVM> selectAll() ;
 
 	SurveyVM selectById(long id);
-
-
-
-
 	
 }
