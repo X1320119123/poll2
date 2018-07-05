@@ -2,8 +2,6 @@ package com.briup.apps.poll.bean.extend;
 
 import java.util.List;
 
-import com.briup.apps.poll.bean.Grade;
-import com.briup.apps.poll.bean.School;
 
 public class UserVM {
 	private Long id;

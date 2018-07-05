@@ -113,4 +113,27 @@ public class UserController {
 			return "删除失败"+e.getMessage();
 		}
 	}
+	@ApiOperation("查询所有用户模型，级联查询该用户所在年级")
+	@GetMapping("findAllVM")
+	public MsgResponse findAllVM() {
+		try {
+			
+			return MsgResponse.success("success", null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	}
+	
+	@ApiOperation("查询所有用户模型")
+	@GetMapping("findAll")
+	public MsgResponse findAll() {
+		try {
+			List<User> list = userService.findAll();
+			return MsgResponse.success("success", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+}
 }

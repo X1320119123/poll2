@@ -54,5 +54,10 @@ public class AnswersServiceImpl implements IAnswersService{
 		public AnswersVM findAnswersVMById(long id) throws Exception {
 			return answersVMMapper.selectById(id);
 		}
+		public List<Answers> findAnswersBySurveyId(long id) throws Exception {
+			AnswersExample example = new AnswersExample();
+			example.createCriteria().andSurveyIdEqualTo(id);
+	return answersMapper.selectByExample(example);
+		}
 
 }

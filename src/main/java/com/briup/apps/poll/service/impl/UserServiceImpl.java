@@ -35,7 +35,7 @@ public class UserServiceImpl implements IUserService{
 	@Override
 	public List<User> query(String keywords) throws Exception{
 		UserExample example=new UserExample();
-		example.createCriteria().andNameLike(keywords);
+		example.createCriteria().andNameLike("%"+keywords+"%");
 		return UserMapper.selectByExample(example);
 	}
 
@@ -61,7 +61,7 @@ public class UserServiceImpl implements IUserService{
 		// TODO Auto-generated method stub
 		for(long id:ids){
 			UserMapper.deleteByPrimaryKey(id);
-		}
+		}	
 	}
 
 	@Override
@@ -69,4 +69,5 @@ public class UserServiceImpl implements IUserService{
 		// TODO Auto-generated method stub
 		return userVMMapper.selectAll();
 	} 
+	
 }
