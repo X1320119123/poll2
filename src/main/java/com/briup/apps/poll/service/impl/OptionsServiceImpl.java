@@ -30,7 +30,7 @@ public class OptionsServiceImpl implements IOptionsService{
 	public List<Options> query(String keywords) throws Exception {
 		//通过关键字查询
 		OptionsExample example=new OptionsExample();
-		example.createCriteria().andNameLike(keywords);
+		example.createCriteria().andLabelLike(keywords);
 		return optionsMapper.selectByExampleWithBLOBs(example);
 	}
 
