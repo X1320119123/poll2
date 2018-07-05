@@ -8,7 +8,7 @@
  		select * from poll_survey where id=#{id}
  		</select>
  		
- 		<select id="selectByClazzIdAndCheckPass" parameterType="long" resultMap="SurveyVMBaseResultMap">
+ 		<select id="selectByClazzIdAndCheckPass" parameterType="long" resultMap="SurveyVMResultMap">
  		select * from poll_survey 
  		where clazz_id = #{id}
  		and status = '审核通过'
