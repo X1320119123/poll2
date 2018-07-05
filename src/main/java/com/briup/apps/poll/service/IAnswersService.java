@@ -17,4 +17,6 @@ public interface IAnswersService {
 	
 	void deleteById(long id) throws Exception;
 	
+	List<Answers> findAnswersBySurveyId(long id) throws Exception;
+	
 }

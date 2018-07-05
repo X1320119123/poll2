@@ -132,4 +132,28 @@ public class SurveyController {
 		} 
 
 	 }
+	 @ApiOperation(value="开启课调",notes="只有在课调未开启的时候开启课调")
+	@GetMapping("beginSurvey")
+	 public MsgResponse beginSurvey(long id){
+		 try {
+//			 通过ID查询课调
+			 survey survey=surveyService.findSurveyById(id);
+//			 修改课调编号/状态
+			 if(survey.getStatus().equals(survey.STATUS_INIT)){
+//				 开启课调
+				 survey.setStatus(survey.STATUS_BEGIN);
+//				 
+				 survey.setCode(survey.getId().toString());
+				 surveyService.saveOrUpdate(survey);
+				 return MsgResponse.success("开启成功", null);
+			 }
+			 else{
+				 return MsgResponse.error("当前状态必须为未开启状态");
+			 }
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	 }
+	 
 }

@@ -8,6 +8,7 @@ public class SurveyVM {
 	private String status;
 	private String surveyDate;
 	private String code;
+	
 	private Course course;
 	private ClazzVM clazzVM;
 	private User user;

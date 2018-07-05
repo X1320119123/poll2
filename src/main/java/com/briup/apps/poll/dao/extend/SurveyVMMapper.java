@@ -10,7 +10,7 @@ public interface SurveyVMMapper {
 
 	SurveyVM selectById(long id);
 
-
+	List<SurveyVM> selectByClazzIdAndCheckPass(long id);
 
 
 	

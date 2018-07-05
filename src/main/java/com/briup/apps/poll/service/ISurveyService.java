@@ -9,6 +9,8 @@ import com.briup.apps.poll.bean.extend.SurveyVM;
 
 public interface ISurveyService {
 //	查询所有
+	List<SurveyVM> findByClazzIdAndCheckPass(long id) throws Exception;
+	
 	List<SurveyVM> findallSurveyVM() throws Exception;
 
 	List<survey> findall() throws Exception;
@@ -19,7 +21,7 @@ public interface ISurveyService {
 //	关键字查询
 	List<survey> query(String keywors) throws Exception;
 	
-	
+	survey findSurveyById(long id) throws Exception;
 	
 //	插入和更新
 	void saveOrUpdate(survey survey) throws Exception;

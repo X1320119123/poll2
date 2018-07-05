@@ -90,6 +90,18 @@ public class SurveyService implements ISurveyService{
 		return surveyVMMapper.selectById(id);
 	}
 
+	@Override
+	public survey findSurveyById(long id) throws Exception {
+		
+		return surveyMapper.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public List<SurveyVM> findByClazzIdAndCheckPass(long id) throws Exception {
+		// TODO Auto-generated method stub
+		return surveyVMMapper.selectByClazzIdAndCheckPass(id);
+	}
+
 
 
 }
