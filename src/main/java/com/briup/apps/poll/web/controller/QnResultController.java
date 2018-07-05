@@ -77,7 +77,7 @@ public class QnResultController {
 			//2.1 创建excel
 			XSSFWorkbook workbook = new XSSFWorkbook();
 			//设置总体样式
-			XSSFCellStyle titleCellStyle = workbook.createCellStyle();
+			XSSFCellStyle titleCellStyle = workbook.createCellStyle(); 
 			titleCellStyle.setAlignment(HorizontalAlignment.CENTER);
 			
 			//2.2 在excel中创建sheet
@@ -112,7 +112,7 @@ public class QnResultController {
 			XSSFCell cell16 = socendRow.createCell(6);
 			cell16.setCellValue("平均分");
 			XSSFCell cell17 = socendRow.createCell(7);
-			cell17.setCellValue(surveyVM.getAverage());
+			cell17.setCellValue(surveyVM.getAverage()); 
 		
 			for(int i=0;i<answers.size();i++){
 				Answers answer = answers.get(i);

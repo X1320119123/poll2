@@ -8,7 +8,7 @@ public class SurveyVM {
 	private String status;
 	private String surveyDate;
 	private String code;
-	
+	private Double average;
 	private Course course;
 	private ClazzVM clazzVM;
 	private User user;
@@ -43,10 +43,11 @@ public class SurveyVM {
 	public void setCourse(Course course) {
 		this.course = course;
 	}
+
 	public ClazzVM getClazzVM() {
 		return clazzVM;
 	}
-	public void setClazz(ClazzVM clazzVM) {
+	public void setClazzVM(ClazzVM clazzVM) {
 		this.clazzVM = clazzVM;
 	}
 	public User getUser() {
@@ -60,6 +61,12 @@ public class SurveyVM {
 	}
 	public void setQuestionnaireVM(QuestionnaireVM questionnaireVM) {
 		this.questionnaireVM = questionnaireVM;
+	}
+	public Double getAverage() {
+		return average;
+	}
+	public void setAverage(Double average) {
+		this.average = average;
 	}
 	
 }
